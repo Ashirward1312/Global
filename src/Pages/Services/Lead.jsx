@@ -20,6 +20,34 @@ import {
 import leadHero from "../img/lead3.jpeg";
 import leadGraph from "../img/lead2.png";
 
+const InlineLeadCTA = ({
+  title = "Need more qualified leads for your business?",
+  text = "Book a free strategy call and let’s build a lead generation system that attracts the right audience and converts them into enquiries.",
+  buttonText = "Book Free Strategy Call",
+}) => {
+  return (
+    <section className="lead-inline-cta-wrap">
+      <div className="lead-inline-cta">
+        <div className="lead-inline-cta-content">
+          <div className="lead-inline-cta-badge">
+            <TrendingUp />
+            Lead Growth CTA
+          </div>
+          <h3>{title}</h3>
+          <p>{text}</p>
+        </div>
+
+        <div className="lead-inline-cta-action">
+          <Link to="/contact" className="lead-inline-cta-btn">
+            {buttonText}
+            <ArrowRight />
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const LeadPage = () => {
   const navigate = useNavigate();
 
@@ -63,7 +91,6 @@ const LeadPage = () => {
           }
         }
 
-        /* Back Button */
         .lead-back-btn {
           position: absolute;
           top: 0;
@@ -102,7 +129,6 @@ const LeadPage = () => {
           transform: translateX(-3px);
         }
 
-        /* Dark background glow */
         .lead-hero::before {
           content: '';
           position: absolute;
@@ -125,7 +151,6 @@ const LeadPage = () => {
           pointer-events: none;
         }
 
-        /* Left text content */
         .lead-hero-content {
           position: relative;
           z-index: 10;
@@ -206,7 +231,6 @@ const LeadPage = () => {
           box-shadow: 0 12px 32px rgba(15,163,163,0.45);
         }
 
-        /* Right Image */
         .lead-hero-img-box {
           position: relative;
           width: 100%;
@@ -322,6 +346,145 @@ const LeadPage = () => {
         }
 
         /* ══════════════════════════════════════════════════════
+           INLINE CTA
+        ══════════════════════════════════════════════════════ */
+        .lead-inline-cta-wrap {
+          max-width: 1140px;
+          margin: 0 auto;
+          padding: 34px 24px;
+        }
+
+        .lead-inline-cta {
+          position: relative;
+          overflow: hidden;
+          border-radius: 24px;
+          border: 1px solid rgba(28,63,99,0.5);
+          background: linear-gradient(135deg, rgba(11,31,58,0.92) 0%, rgba(15,42,68,0.78) 50%, rgba(6,15,30,0.95) 100%);
+          box-shadow: 0 18px 50px rgba(0,0,0,0.28);
+          padding: 30px 28px;
+          display: flex;
+          flex-direction: column;
+          gap: 22px;
+        }
+
+        .lead-inline-cta::before {
+          content: '';
+          position: absolute;
+          top: -50px;
+          right: -50px;
+          width: 180px;
+          height: 180px;
+          border-radius: 50%;
+          background: rgba(15,163,163,0.10);
+          filter: blur(40px);
+          pointer-events: none;
+        }
+
+        .lead-inline-cta::after {
+          content: '';
+          position: absolute;
+          bottom: -60px;
+          left: -20px;
+          width: 180px;
+          height: 180px;
+          border-radius: 50%;
+          background: rgba(212,164,55,0.10);
+          filter: blur(50px);
+          pointer-events: none;
+        }
+
+        @media (min-width: 900px) {
+          .lead-inline-cta {
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            padding: 34px 36px;
+          }
+        }
+
+        .lead-inline-cta-content {
+          position: relative;
+          z-index: 2;
+          max-width: 700px;
+        }
+
+        .lead-inline-cta-badge {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          padding: 8px 16px;
+          border-radius: 999px;
+          background: rgba(15,163,163,0.10);
+          border: 1px solid rgba(15,163,163,0.22);
+          color: #7DE3E3;
+          font-size: 10px;
+          font-weight: 700;
+          letter-spacing: 0.16em;
+          text-transform: uppercase;
+          margin-bottom: 14px;
+        }
+
+        .lead-inline-cta-badge svg {
+          width: 13px;
+          height: 13px;
+        }
+
+        .lead-inline-cta h3 {
+          margin: 0 0 10px;
+          color: #fff;
+          font-size: clamp(1.35rem, 2.5vw, 2rem);
+          line-height: 1.2;
+          font-weight: 800;
+          letter-spacing: -0.01em;
+        }
+
+        .lead-inline-cta p {
+          margin: 0;
+          color: #9AB4CC;
+          font-size: 14px;
+          line-height: 1.8;
+          max-width: 640px;
+        }
+
+        .lead-inline-cta-action {
+          position: relative;
+          z-index: 2;
+          flex-shrink: 0;
+        }
+
+        .lead-inline-cta-btn {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+          padding: 15px 24px;
+          border-radius: 14px;
+          text-decoration: none;
+          background: #D4A437;
+          color: #0F2A44;
+          font-size: 14px;
+          font-weight: 800;
+          transition: all 0.25s ease;
+          box-shadow: 0 10px 28px rgba(212,164,55,0.22);
+        }
+
+        .lead-inline-cta-btn:hover {
+          transform: translateY(-3px);
+          background: #E5B445;
+          box-shadow: 0 14px 34px rgba(212,164,55,0.32);
+        }
+
+        .lead-inline-cta-btn svg {
+          width: 16px;
+          height: 16px;
+          transition: transform 0.25s ease;
+        }
+
+        .lead-inline-cta-btn:hover svg {
+          transform: translateX(4px);
+        }
+
+        /* ══════════════════════════════════════════════════════
            OUR SYSTEM / HOW IT WORKS
         ══════════════════════════════════════════════════════ */
         .lead-system {
@@ -411,7 +574,7 @@ const LeadPage = () => {
         }
 
         /* ══════════════════════════════════════════════════════
-           CTA
+           FINAL CTA
         ══════════════════════════════════════════════════════ */
         .lead-cta {
           padding: 100px 24px;
@@ -437,7 +600,7 @@ const LeadPage = () => {
         .lead-cta-inner {
           position: relative;
           z-index: 10;
-          max-width: 600px;
+          max-width: 650px;
           margin: 0 auto;
         }
 
@@ -446,6 +609,7 @@ const LeadPage = () => {
           font-weight: 800;
           color: #fff;
           margin: 0 0 16px;
+          line-height: 1.12;
         }
 
         .lead-cta p {
@@ -475,6 +639,16 @@ const LeadPage = () => {
           background: #E5B445;
         }
 
+        .lead-cta-btn svg {
+          width: 17px;
+          height: 17px;
+          transition: transform 0.25s ease;
+        }
+
+        .lead-cta-btn:hover svg {
+          transform: translateX(4px);
+        }
+
         @media (max-width: 640px) {
           .lead-root {
             padding-top: 20px;
@@ -496,6 +670,27 @@ const LeadPage = () => {
           }
 
           .lead-hero-btn {
+            width: 100%;
+            justify-content: center;
+          }
+
+          .lead-inline-cta-wrap {
+            padding: 24px 20px;
+          }
+
+          .lead-inline-cta {
+            padding: 24px 20px;
+          }
+
+          .lead-inline-cta-btn {
+            width: 100%;
+          }
+
+          .lead-cta {
+            padding: 80px 20px;
+          }
+
+          .lead-cta-btn {
             width: 100%;
             justify-content: center;
           }
@@ -583,6 +778,11 @@ const LeadPage = () => {
         </div>
       </section>
 
+      <InlineLeadCTA
+        title="Need a system that brings in leads consistently?"
+        text="Book a free strategy call and discover how we can build a predictable lead generation funnel tailored to your business."
+      />
+
       {/* ── HOW IT WORKS ────────────────────────────────────── */}
       <section className="lead-system">
         <div className="lead-s-header">
@@ -626,6 +826,26 @@ const LeadPage = () => {
               your sales team is notified immediately to close the deal while it's hot.
             </p>
           </div>
+        </div>
+      </section>
+
+      <InlineLeadCTA
+        title="Want more qualified enquiries without relying on referrals?"
+        text="Let’s create a lead generation system that captures demand, filters quality prospects and keeps your pipeline full."
+      />
+
+      {/* ── FINAL CTA ───────────────────────────────────────── */}
+      <section className="lead-cta">
+        <div className="lead-cta-inner">
+          <h2>Ready to Build a Lead Generation System That Scales?</h2>
+          <p>
+            Book a free strategy call and let’s map out a smarter funnel that
+            attracts better leads, improves conversions and supports long-term growth.
+          </p>
+          <Link to="/contact" className="lead-cta-btn">
+            Book Free Strategy Call
+            <ArrowRight />
+          </Link>
         </div>
       </section>
     </div>

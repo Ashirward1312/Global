@@ -51,6 +51,63 @@ const FadeIn = ({ children, delay = 0, direction = "up", className = "" }) => {
   );
 };
 
+/* ───────── Inline CTA ───────── */
+const InlineAuditCTA = ({
+  title = "Want to know how your website is performing?",
+  desc = "Get a free SEO audit and discover the biggest opportunities to improve your rankings, traffic and leads.",
+}) => {
+  return (
+    <section className="relative py-10 md:py-12">
+      <div className="mx-auto max-w-5xl px-6 md:px-8">
+        <FadeIn>
+          <div
+            className="relative overflow-hidden rounded-[22px] border border-slate-200/80
+                       bg-gradient-to-r from-white via-sky-50/60 to-teal-50/40
+                       px-6 py-7 md:px-8 md:py-8
+                       shadow-lg shadow-slate-200/40"
+          >
+            <div className="absolute -top-12 -right-12 w-32 h-32 rounded-full bg-sky-200/30 blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-12 -left-8 w-32 h-32 rounded-full bg-teal-200/30 blur-3xl pointer-events-none" />
+
+            <div className="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-5">
+              <div className="max-w-2xl">
+                <div className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] font-semibold text-sky-700 mb-3">
+                  <Search className="w-3.5 h-3.5 text-[#0FA3A3]" />
+                  Free SEO Audit
+                </div>
+                <h3 className="text-lg md:text-[1.35rem] font-bold text-slate-900 mb-2">
+                  {title}
+                </h3>
+                <p className="text-[13px] md:text-[14px] leading-[1.75] text-slate-600">
+                  {desc}
+                </p>
+              </div>
+
+              <motion.div
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                className="shrink-0"
+              >
+                <Link
+                  to="/contact"
+                  className="group inline-flex items-center justify-center gap-2
+                             px-6 py-3 rounded-xl font-semibold text-[14px]
+                             text-white bg-slate-900
+                             shadow-md hover:bg-slate-800 hover:shadow-lg
+                             transition-all duration-300"
+                >
+                  Get Free SEO Audit
+                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </Link>
+              </motion.div>
+            </div>
+          </div>
+        </FadeIn>
+      </div>
+    </section>
+  );
+};
+
 /* ───────── Data ───────── */
 const benefitsData = [
   {
@@ -171,7 +228,6 @@ const SeoPage = () => {
     <div className="bg-white min-h-screen text-slate-900 overflow-x-hidden">
       {/* ═══════ HERO ═══════ */}
       <section className="relative overflow-hidden border-b border-slate-100 -mt-[1px] pt-12 pb-20 md:pt-16 md:pb-24">
-        {/* Backgrounds */}
         <div className="absolute inset-0 bg-gradient-to-b from-sky-50/80 via-white to-white" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_-10%,rgba(15,163,163,0.10),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(245,158,11,0.06),transparent_40%)]" />
@@ -186,7 +242,6 @@ const SeoPage = () => {
         />
         <div className="absolute -top-28 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-sky-200/25 blur-[120px] rounded-full pointer-events-none" />
 
-        {/* Back Button */}
         <motion.button
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -209,7 +264,6 @@ const SeoPage = () => {
 
         <div className="relative z-10 mx-auto max-w-7xl px-6 md:px-8">
           <div className="grid items-center gap-10 lg:gap-14 lg:grid-cols-2">
-            {/* Left */}
             <div className="max-w-xl pt-14 md:pt-16 lg:pt-10">
               <FadeIn>
                 <div
@@ -281,7 +335,6 @@ const SeoPage = () => {
               </FadeIn>
             </div>
 
-            {/* Right Image */}
             <FadeIn delay={0.12} direction="left">
               <div className="relative w-full">
                 <div
@@ -295,7 +348,6 @@ const SeoPage = () => {
                   />
                 </div>
 
-                {/* Badge bottom-left */}
                 <motion.div
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
@@ -319,7 +371,6 @@ const SeoPage = () => {
                   </div>
                 </motion.div>
 
-                {/* Badge top-right */}
                 <motion.div
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
@@ -418,6 +469,11 @@ const SeoPage = () => {
         </div>
       </section>
 
+      <InlineAuditCTA
+        title="Get a free SEO audit for your website"
+        desc="We’ll identify technical issues, missed keyword opportunities and quick wins that can improve your visibility on Google."
+      />
+
       {/* ═══════ WHY YOUR BUSINESS NEEDS SEO ═══════ */}
       <section className="relative py-20 md:py-28 bg-slate-50/60 border-y border-slate-100">
         <div className="relative z-10 mx-auto max-w-5xl px-6 md:px-8">
@@ -471,6 +527,11 @@ const SeoPage = () => {
           </div>
         </div>
       </section>
+
+      <InlineAuditCTA
+        title="See what’s stopping your site from ranking higher"
+        desc="Get a free SEO audit and uncover the exact issues affecting your search traffic, lead flow and online visibility."
+      />
 
       {/* ═══════ OUR SEO APPROACH ═══════ */}
       <section className="relative py-20 md:py-28">
@@ -567,6 +628,11 @@ const SeoPage = () => {
         </div>
       </section>
 
+      <InlineAuditCTA
+        title="Not sure where your SEO stands right now?"
+        desc="Request a free SEO audit and get expert insights into your rankings, speed, content structure and growth opportunities."
+      />
+
       {/* ═══════ PROCESS ═══════ */}
       <section className="relative py-20 md:py-28 bg-slate-50/60 border-y border-slate-100">
         <div className="relative z-10 mx-auto max-w-6xl px-6 md:px-8">
@@ -626,7 +692,7 @@ const SeoPage = () => {
         </div>
       </section>
 
-      {/* ═══════ CTA ═══════ */}
+      {/* ═══════ FINAL CTA ═══════ */}
       <section className="relative py-16 md:py-20">
         <div className="relative z-10 mx-auto max-w-4xl px-6 md:px-8">
           <FadeIn>

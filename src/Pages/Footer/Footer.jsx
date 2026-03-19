@@ -50,23 +50,34 @@ export default function Footer() {
 
             <div className="mt-6 flex items-center gap-3">
               <a
-                href="#"
+                href="https://www.facebook.com/profile.php?id=61582189805599"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
                 className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-600 transition-all duration-300 hover:border-[#0FA3A3] hover:text-[#0FA3A3]"
               >
                 <Facebook className="h-4 w-4" />
               </a>
+
               <a
-                href="#"
+                href="https://www.instagram.com/ventoriaglobal?igsh=NnJ6eG9vMzZubG4x"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
                 className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-600 transition-all duration-300 hover:border-[#0FA3A3] hover:text-[#0FA3A3]"
               >
                 <Instagram className="h-4 w-4" />
               </a>
-              <a
+
+              {/* <a
                 href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
                 className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-600 transition-all duration-300 hover:border-[#0FA3A3] hover:text-[#0FA3A3]"
               >
                 <Linkedin className="h-4 w-4" />
-              </a>
+              </a> */}
             </div>
           </div>
 
@@ -136,7 +147,7 @@ export default function Footer() {
               <div className="flex items-start gap-3 text-sm text-slate-600">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[#0FA3A3]" />
                 <span>
-                  Ventoria Global, India
+                  Ventoria Global, Australia
                   <br />
                   Serving clients worldwide
                 </span>

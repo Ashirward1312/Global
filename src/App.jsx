@@ -15,6 +15,7 @@ import Website from "./Pages/Services/Website";
 import Social from "./Pages/Services/Social";
 import Contact from "./Pages/Contact/Contact";
 import Casestudy from "./Pages/Casestudy/Casestudy";
+import Portfolio from "./Pages/Portfolio/Portfolio";
 
 /* Home page component */
 const HomePage = () => {
@@ -52,6 +53,7 @@ function App() {
 
           {/* Main Pages */}
           <Route path="/services" element={<Services />} />
+          <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/case-studies" element={<Casestudy />} />
           <Route path="/contact" element={<Contact />} />
 

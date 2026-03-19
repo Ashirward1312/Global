@@ -96,6 +96,79 @@ const FadeIn = ({ children, delay = 0, direction = "up", className = "" }) => {
   );
 };
 
+/* ───────── Inline CTA ───────── */
+const InlineWebsiteCTA = ({
+  title = "Need a high-performing website for your business?",
+  desc = "Book a free website consultation and let’s map out a custom website that looks premium, loads fast and converts better.",
+  buttonText = "Book Free Website Consultation",
+}) => {
+  return (
+    <section className="relative py-10 md:py-12">
+      <div className="mx-auto max-w-5xl px-6 md:px-8">
+        <FadeIn>
+          <div
+            className="relative overflow-hidden rounded-[24px] border border-[#1C3F63]/55
+                       bg-gradient-to-r from-[#0B1F3A]/85 via-[#102846]/80 to-[#0A1C31]/90
+                       backdrop-blur-xl px-6 py-7 md:px-8 md:py-8
+                       shadow-[0_18px_50px_rgba(0,0,0,0.28)]"
+          >
+            <div className="absolute -top-12 -right-12 w-36 h-36 rounded-full bg-[#0FA3A3]/10 blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-12 -left-10 w-36 h-36 rounded-full bg-[#D4A437]/10 blur-3xl pointer-events-none" />
+            <div
+              className="absolute top-0 left-1/2 -translate-x-1/2 w-[40%] h-[1px]"
+              style={{
+                background:
+                  "linear-gradient(90deg, transparent, rgba(15,163,163,0.45), transparent)",
+              }}
+            />
+
+            <div className="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-5">
+              <div className="max-w-2xl">
+                <div
+                  className="inline-flex items-center gap-2 rounded-full
+                             border border-[#1C3F63]/60 bg-[#0F2A44]/45
+                             px-4 py-2 text-[10px] uppercase tracking-[0.18em]
+                             text-[#8FA7C0] mb-3"
+                >
+                  <Globe className="w-3.5 h-3.5 text-[#0FA3A3]" />
+                  Website Consultation
+                </div>
+
+                <h3 className="text-[1.2rem] md:text-[1.45rem] font-bold text-white mb-2 leading-snug">
+                  {title}
+                </h3>
+
+                <p className="text-[13px] md:text-[14px] leading-[1.75] text-[#8FA7C0]">
+                  {desc}
+                </p>
+              </div>
+
+              <motion.div
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                className="shrink-0"
+              >
+                <Link
+                  to="/contact"
+                  className="group inline-flex items-center justify-center gap-2
+                             px-6 py-3.5 rounded-xl font-semibold text-[13px] md:text-[14px]
+                             text-[#060F1E] bg-[#D4A437]
+                             shadow-[0_8px_24px_rgba(212,164,55,0.22)]
+                             hover:shadow-[0_12px_30px_rgba(212,164,55,0.32)]
+                             transition-all duration-300"
+                >
+                  {buttonText}
+                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </Link>
+              </motion.div>
+            </div>
+          </div>
+        </FadeIn>
+      </div>
+    </section>
+  );
+};
+
 /* ───────── Data ───────── */
 const webTypes = [
   { icon: Monitor, text: "Business Websites", color: "#0FA3A3" },
@@ -226,7 +299,6 @@ const WebsitePage = () => {
 
         <FloatingParticles />
 
-        {/* ── BACK BUTTON ── */}
         <motion.button
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -249,7 +321,6 @@ const WebsitePage = () => {
 
         <div className="relative z-10 mx-auto max-w-7xl px-6 md:px-8">
           <div className="grid items-center gap-10 lg:gap-14 lg:grid-cols-2">
-            {/* Left — Text */}
             <div className="max-w-xl pt-14 md:pt-16 lg:pt-10">
               <FadeIn>
                 <div
@@ -291,10 +362,7 @@ const WebsitePage = () => {
 
               <FadeIn delay={0.2}>
                 <div className="flex flex-col sm:flex-row gap-3">
-                  <motion.div
-                    whileHover={{ scale: 1.03 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
+                  <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
                     <Link
                       to="/contact"
                       className="group inline-flex items-center justify-center gap-2
@@ -309,10 +377,7 @@ const WebsitePage = () => {
                     </Link>
                   </motion.div>
 
-                  <motion.div
-                    whileHover={{ scale: 1.03 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
+                  <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
                     <Link
                       to="/contact"
                       className="inline-flex items-center justify-center gap-2
@@ -328,7 +393,6 @@ const WebsitePage = () => {
               </FadeIn>
             </div>
 
-            {/* Right — Image */}
             <FadeIn delay={0.12} direction="left">
               <div className="relative w-full">
                 <div
@@ -360,9 +424,7 @@ const WebsitePage = () => {
                         <Zap className="w-4 h-4 text-[#0FA3A3]" />
                       </div>
                       <div>
-                        <div className="text-white font-bold text-xs">
-                          99+ Speed
-                        </div>
+                        <div className="text-white font-bold text-xs">99+ Speed</div>
                         <div className="text-[9px] text-[#7A96B4] uppercase tracking-wider">
                           Performance
                         </div>
@@ -459,10 +521,7 @@ const WebsitePage = () => {
                           border: `1px solid ${item.color}22`,
                         }}
                       >
-                        <item.icon
-                          className="w-4 h-4"
-                          style={{ color: item.color }}
-                        />
+                        <item.icon className="w-4 h-4" style={{ color: item.color }} />
                       </div>
                       <span className="text-[14px] font-semibold text-white">
                         {item.text}
@@ -485,6 +544,11 @@ const WebsitePage = () => {
           </div>
         </div>
       </section>
+
+      <InlineWebsiteCTA
+        title="Need a custom website built around your business goals?"
+        desc="Book a free website consultation and we’ll help you plan the right structure, design and strategy for better conversions."
+      />
 
       {/* ═══════ FEATURES ═══════ */}
       <section className="relative py-20 md:py-28">
@@ -572,11 +636,7 @@ const WebsitePage = () => {
 
               <div className="space-y-3.5">
                 {features.map((item, i) => (
-                  <FadeIn
-                    key={i}
-                    delay={0.14 + i * 0.06}
-                    direction="left"
-                  >
+                  <FadeIn key={i} delay={0.14 + i * 0.06} direction="left">
                     <div
                       className="group flex items-start gap-3.5 rounded-xl
                                  border border-[#1C3F63]/40 bg-[#0F2A44]/20
@@ -591,10 +651,7 @@ const WebsitePage = () => {
                           border: `1px solid ${item.color}22`,
                         }}
                       >
-                        <item.icon
-                          className="w-4 h-4"
-                          style={{ color: item.color }}
-                        />
+                        <item.icon className="w-4 h-4" style={{ color: item.color }} />
                       </div>
                       <div>
                         <h4 className="text-[14px] font-bold text-white mb-1">
@@ -612,6 +669,11 @@ const WebsitePage = () => {
           </div>
         </div>
       </section>
+
+      <InlineWebsiteCTA
+        title="Want a website that looks premium and converts better?"
+        desc="Let’s build a fast, responsive and conversion-focused website that supports your growth from day one."
+      />
 
       {/* ═══════ WHY CHOOSE US ═══════ */}
       <section className="relative py-20 md:py-28">
@@ -679,10 +741,7 @@ const WebsitePage = () => {
                       border: `1.5px solid ${item.color}22`,
                     }}
                   >
-                    <item.icon
-                      className="w-4 h-4"
-                      style={{ color: item.color }}
-                    />
+                    <item.icon className="w-4 h-4" style={{ color: item.color }} />
                   </div>
 
                   <h3 className="text-[15px] font-bold text-white mb-2">
@@ -697,6 +756,11 @@ const WebsitePage = () => {
           </div>
         </div>
       </section>
+
+      <InlineWebsiteCTA
+        title="Ready to discuss your new business website?"
+        desc="Book a free website consultation and get expert guidance on design, structure, performance and next steps for your project."
+      />
 
       {/* ═══════ PROCESS ═══════ */}
       <section className="relative py-20 md:py-28">
@@ -773,7 +837,7 @@ const WebsitePage = () => {
         </div>
       </section>
 
-      {/* ═══════ CTA ═══════ */}
+      {/* ═══════ FINAL CTA ═══════ */}
       <section className="relative py-14 md:py-18">
         <div className="relative z-10 mx-auto max-w-3xl px-6 md:px-8">
           <FadeIn>

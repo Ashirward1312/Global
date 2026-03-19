@@ -19,6 +19,7 @@ import {
   Rocket,
   Quote,
   Star,
+  Search,
 } from "lucide-react";
 
 /* ───────── Floating Particles ───────── */
@@ -85,6 +86,79 @@ const FadeIn = ({ children, delay = 0, direction = "up", className = "" }) => {
     >
       {children}
     </motion.div>
+  );
+};
+
+/* ───────── Inline Audit CTA ───────── */
+const InlineAuditCTA = ({
+  title = "Want clarity on your digital growth opportunities?",
+  text = "Get your free audit and discover where your business can improve visibility, conversions and long-term digital performance.",
+  buttonText = "Get Your Free Audit",
+}) => {
+  return (
+    <section className="relative py-8 md:py-10">
+      <div className="relative z-10 mx-auto max-w-5xl px-6 md:px-8">
+        <FadeIn>
+          <div
+            className="relative overflow-hidden rounded-[24px] border border-[#1C3F63]/50
+                       bg-gradient-to-r from-[#0B1F3A]/75 via-[#0F2A44]/65 to-[#0A1A2E]/80
+                       backdrop-blur-sm px-6 py-7 md:px-8 md:py-8
+                       shadow-[0_18px_50px_rgba(0,0,0,0.24)]"
+          >
+            <div className="absolute -top-10 -right-10 h-32 w-32 rounded-full bg-[#0FA3A3]/10 blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-10 -left-10 h-32 w-32 rounded-full bg-[#D4A437]/10 blur-3xl pointer-events-none" />
+            <div
+              className="absolute top-0 left-1/2 -translate-x-1/2 w-[40%] h-[1px]"
+              style={{
+                background:
+                  "linear-gradient(90deg, transparent, rgba(15,163,163,0.45), transparent)",
+              }}
+            />
+
+            <div className="relative z-10 flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
+              <div className="max-w-2xl">
+                <div
+                  className="inline-flex items-center gap-2 rounded-full
+                             border border-[#1C3F63]/60 bg-[#0F2A44]/45
+                             px-4 py-2 text-[10px] uppercase tracking-[0.18em]
+                             text-[#8FA7C0] mb-3"
+                >
+                  <Search className="w-3.5 h-3.5 text-[#0FA3A3]" />
+                  Free Digital Audit
+                </div>
+
+                <h3 className="text-[1.2rem] md:text-[1.45rem] font-bold text-white mb-2 leading-snug">
+                  {title}
+                </h3>
+
+                <p className="text-[13px] md:text-[14px] leading-[1.75] text-[#8FA7C0]">
+                  {text}
+                </p>
+              </div>
+
+              <motion.div
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                className="shrink-0"
+              >
+                <Link
+                  to="/contact"
+                  className="group inline-flex items-center justify-center gap-2
+                             px-6 py-3.5 rounded-xl font-semibold text-[13px] md:text-[14px]
+                             text-[#060F1E] bg-[#D4A437]
+                             shadow-[0_8px_24px_rgba(212,164,55,0.22)]
+                             hover:shadow-[0_12px_30px_rgba(212,164,55,0.32)]
+                             transition-all duration-300"
+                >
+                  {buttonText}
+                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </Link>
+              </motion.div>
+            </div>
+          </div>
+        </FadeIn>
+      </div>
+    </section>
   );
 };
 
@@ -177,7 +251,6 @@ const MissionVisionPage = () => {
 
   return (
     <main className="min-h-screen bg-[#060F1E] text-white overflow-x-hidden">
-      {/* Fixed BG */}
       <div className="fixed inset-0 -z-10">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_1200px_700px_at_50%_-10%,rgba(15,40,70,0.95),rgba(6,15,30,1))]" />
         <div
@@ -193,7 +266,7 @@ const MissionVisionPage = () => {
 
       <FloatingParticles />
 
-      {/* ═══════ HERO ═══════ */}
+      {/* HERO */}
       <section className="relative overflow-hidden pt-32 pb-16 md:pt-40 md:pb-22">
         <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[450px] bg-[#0FA3A3]/[0.06] blur-[160px] rounded-full pointer-events-none" />
         <div className="absolute top-[20%] right-[8%] w-[280px] h-[280px] bg-[#5ED4D4]/[0.04] blur-[120px] rounded-full pointer-events-none" />
@@ -270,7 +343,7 @@ const MissionVisionPage = () => {
         </div>
       </section>
 
-      {/* ═══════ MISSION + VISION ═══════ */}
+      {/* MISSION + VISION */}
       <section className="relative py-16 md:py-24">
         <div
           className="absolute top-0 left-0 right-0 h-px"
@@ -309,30 +382,17 @@ const MissionVisionPage = () => {
           </FadeIn>
 
           <div className="grid gap-7 md:gap-8 lg:grid-cols-2">
-            {/* Mission */}
             <FadeIn delay={0.06} direction="right">
-              <div
-                className="group relative h-full rounded-[26px] border border-[#1C3F63]/50
-                           bg-gradient-to-b from-[#0B1F3A]/50 to-[#060F1E]/65
-                           backdrop-blur-sm overflow-hidden p-7 md:p-9
-                           hover:border-[#0FA3A3]/35
-                           hover:shadow-[0_16px_50px_rgba(0,0,0,0.22)]
-                           transition-all duration-500"
-              >
+              <div className="group relative h-full rounded-[26px] border border-[#1C3F63]/50 bg-gradient-to-b from-[#0B1F3A]/50 to-[#060F1E]/65 backdrop-blur-sm overflow-hidden p-7 md:p-9 hover:border-[#0FA3A3]/35 hover:shadow-[0_16px_50px_rgba(0,0,0,0.22)] transition-all duration-500">
                 <div
-                  className="absolute top-0 left-1/2 -translate-x-1/2 w-[55%] h-[1px]
-                             opacity-40 group-hover:opacity-100 transition-opacity duration-500"
+                  className="absolute top-0 left-1/2 -translate-x-1/2 w-[55%] h-[1px] opacity-40 group-hover:opacity-100 transition-opacity duration-500"
                   style={{
                     background: "linear-gradient(90deg, transparent, rgba(15,163,163,0.5), transparent)",
                   }}
                 />
                 <div className="absolute -top-14 -right-14 w-28 h-28 bg-[#0FA3A3]/[0.04] rounded-full blur-[50px] group-hover:bg-[#0FA3A3]/[0.07] transition-all duration-700" />
 
-                <div
-                  className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6
-                             bg-[#0FA3A3]/10 border border-[#0FA3A3]/25
-                             group-hover:scale-105 transition-transform duration-300"
-                >
+                <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 bg-[#0FA3A3]/10 border border-[#0FA3A3]/25 group-hover:scale-105 transition-transform duration-300">
                   <Target className="w-6 h-6 text-[#5ED4D4]" />
                 </div>
 
@@ -358,46 +418,20 @@ const MissionVisionPage = () => {
                   create strategies that deliver measurable results for
                   Australian businesses.
                 </p>
-
-                <div className="flex flex-wrap gap-2 mt-7">
-                  {["Strategy", "Growth", "Results"].map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full border border-[#0FA3A3]/20 bg-[#0FA3A3]/[0.07]
-                                 px-3 py-1.5 text-[9px] uppercase tracking-[0.18em]
-                                 text-[#5ED4D4] font-medium"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
               </div>
             </FadeIn>
 
-            {/* Vision */}
             <FadeIn delay={0.12} direction="left">
-              <div
-                className="group relative h-full rounded-[26px] border border-[#1C3F63]/50
-                           bg-gradient-to-b from-[#0B1F3A]/50 to-[#060F1E]/65
-                           backdrop-blur-sm overflow-hidden p-7 md:p-9
-                           hover:border-[#D4A437]/35
-                           hover:shadow-[0_16px_50px_rgba(0,0,0,0.22)]
-                           transition-all duration-500"
-              >
+              <div className="group relative h-full rounded-[26px] border border-[#1C3F63]/50 bg-gradient-to-b from-[#0B1F3A]/50 to-[#060F1E]/65 backdrop-blur-sm overflow-hidden p-7 md:p-9 hover:border-[#D4A437]/35 hover:shadow-[0_16px_50px_rgba(0,0,0,0.22)] transition-all duration-500">
                 <div
-                  className="absolute top-0 left-1/2 -translate-x-1/2 w-[55%] h-[1px]
-                             opacity-40 group-hover:opacity-100 transition-opacity duration-500"
+                  className="absolute top-0 left-1/2 -translate-x-1/2 w-[55%] h-[1px] opacity-40 group-hover:opacity-100 transition-opacity duration-500"
                   style={{
                     background: "linear-gradient(90deg, transparent, rgba(212,164,55,0.5), transparent)",
                   }}
                 />
                 <div className="absolute -top-14 -right-14 w-28 h-28 bg-[#D4A437]/[0.04] rounded-full blur-[50px] group-hover:bg-[#D4A437]/[0.07] transition-all duration-700" />
 
-                <div
-                  className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6
-                             bg-[#D4A437]/10 border border-[#D4A437]/25
-                             group-hover:scale-105 transition-transform duration-300"
-                >
+                <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 bg-[#D4A437]/10 border border-[#D4A437]/25 group-hover:scale-105 transition-transform duration-300">
                   <Eye className="w-6 h-6 text-[#D4A437]" />
                 </div>
 
@@ -415,15 +449,9 @@ const MissionVisionPage = () => {
                   grow and thrive in an increasingly digital world.
                 </p>
 
-                <div
-                  className="rounded-xl border border-[#1C3F63]/40 bg-[#081629]/50
-                             p-4 hover:border-[#1C3F63]/60 transition-colors duration-300"
-                >
+                <div className="rounded-xl border border-[#1C3F63]/40 bg-[#081629]/50 p-4 hover:border-[#1C3F63]/60 transition-colors duration-300">
                   <div className="flex items-start gap-3.5">
-                    <div
-                      className="w-10 h-10 shrink-0 rounded-lg flex items-center justify-center
-                                 bg-[#47C7FF]/10 border border-[#47C7FF]/20"
-                    >
+                    <div className="w-10 h-10 shrink-0 rounded-lg flex items-center justify-center bg-[#47C7FF]/10 border border-[#47C7FF]/20">
                       <LineChart className="w-4 h-4 text-[#47C7FF]" />
                     </div>
                     <div>
@@ -437,45 +465,29 @@ const MissionVisionPage = () => {
                     </div>
                   </div>
                 </div>
-
-                <div className="flex flex-wrap gap-2 mt-7">
-                  {["Trust", "Partnership", "Scale"].map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full border border-[#D4A437]/20 bg-[#D4A437]/[0.07]
-                                 px-3 py-1.5 text-[9px] uppercase tracking-[0.18em]
-                                 text-[#D4A437] font-medium"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
               </div>
             </FadeIn>
           </div>
         </div>
       </section>
 
-      {/* ═══════ CORE VALUES ═══════ */}
+      <InlineAuditCTA
+        title="Need a clearer picture of your business’s digital potential?"
+        text="Get your free audit and uncover the biggest opportunities to improve your visibility, lead generation and overall digital growth."
+      />
+
+      {/* CORE VALUES */}
       <section className="relative py-16 md:py-24">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_800px_400px_at_50%_50%,rgba(15,40,70,0.18),transparent)]" />
 
         <div className="relative z-10 mx-auto max-w-5xl px-6 md:px-8">
           <FadeIn>
             <div className="text-center mb-12">
-              <div
-                className="inline-flex items-center gap-2 rounded-full
-                           border border-[#1C3F63]/60 bg-[#0F2A44]/40
-                           px-5 py-2.5 text-[10px] uppercase tracking-[0.2em]
-                           text-[#7A96B4] mb-6"
-              >
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#1C3F63]/60 bg-[#0F2A44]/40 px-5 py-2.5 text-[10px] uppercase tracking-[0.2em] text-[#7A96B4] mb-6">
                 <Heart className="w-3.5 h-3.5 text-[#D4A437]" />
                 Our Values
               </div>
-              <h2
-                className="text-2xl sm:text-3xl md:text-[2.2rem] font-extrabold text-white
-                           leading-[1.15] tracking-tight"
-              >
+              <h2 className="text-2xl sm:text-3xl md:text-[2.2rem] font-extrabold text-white leading-[1.15] tracking-tight">
                 The Values That{" "}
                 <span className="bg-gradient-to-r from-[#0FA3A3] to-[#5ED4D4] bg-clip-text text-transparent">
                   Drive Us
@@ -487,17 +499,9 @@ const MissionVisionPage = () => {
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {coreValues.map((item, i) => (
               <FadeIn key={i} delay={i * 0.07}>
-                <div
-                  className="group h-full rounded-2xl border border-[#1C3F63]/50
-                             bg-gradient-to-b from-[#0B1F3A]/40 to-[#060F1E]/55
-                             backdrop-blur-sm p-6
-                             hover:border-[#1C3F63]/70 hover:-translate-y-1
-                             hover:shadow-[0_14px_40px_rgba(0,0,0,0.22)]
-                             transition-all duration-400"
-                >
+                <div className="group h-full rounded-2xl border border-[#1C3F63]/50 bg-gradient-to-b from-[#0B1F3A]/40 to-[#060F1E]/55 backdrop-blur-sm p-6 hover:border-[#1C3F63]/70 hover:-translate-y-1 hover:shadow-[0_14px_40px_rgba(0,0,0,0.22)] transition-all duration-400">
                   <div
-                    className="w-11 h-11 rounded-xl flex items-center justify-center mb-4
-                               group-hover:scale-105 transition-transform duration-300"
+                    className="w-11 h-11 rounded-xl flex items-center justify-center mb-4 group-hover:scale-105 transition-transform duration-300"
                     style={{
                       background: `${item.color}14`,
                       border: `1.5px solid ${item.color}25`,
@@ -518,7 +522,7 @@ const MissionVisionPage = () => {
         </div>
       </section>
 
-      {/* ═══════ WHAT WE COMBINE ═══════ */}
+      {/* WHAT WE COMBINE */}
       <section className="relative py-16 md:py-24">
         <div
           className="absolute top-0 left-0 right-0 h-px"
@@ -530,19 +534,11 @@ const MissionVisionPage = () => {
         <div className="relative z-10 mx-auto max-w-5xl px-6 md:px-8">
           <FadeIn>
             <div className="text-center mb-12 md:mb-14">
-              <div
-                className="inline-flex items-center gap-2 rounded-full
-                           border border-[#1C3F63]/60 bg-[#0F2A44]/40
-                           px-5 py-2.5 text-[10px] uppercase tracking-[0.2em]
-                           text-[#7A96B4] mb-6"
-              >
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#1C3F63]/60 bg-[#0F2A44]/40 px-5 py-2.5 text-[10px] uppercase tracking-[0.2em] text-[#7A96B4] mb-6">
                 <Layers3 className="w-3.5 h-3.5 text-[#0FA3A3]" />
                 What We Combine
               </div>
-              <h2
-                className="text-2xl sm:text-3xl md:text-[2.2rem] font-extrabold text-white
-                           leading-[1.15] tracking-tight mb-4"
-              >
+              <h2 className="text-2xl sm:text-3xl md:text-[2.2rem] font-extrabold text-white leading-[1.15] tracking-tight mb-4">
                 Marketing, Technology &{" "}
                 <span className="bg-gradient-to-r from-[#0FA3A3] to-[#D4A437] bg-clip-text text-transparent">
                   Analytics
@@ -558,26 +554,16 @@ const MissionVisionPage = () => {
           <div className="grid gap-6 md:grid-cols-3">
             {valueCards.map((item, i) => (
               <FadeIn key={item.title} delay={i * 0.09}>
-                <div
-                  className="group relative h-full rounded-[22px] border border-[#1C3F63]/50
-                             bg-gradient-to-b from-[#0B1F3A]/45 to-[#060F1E]/60
-                             backdrop-blur-sm p-7 overflow-hidden
-                             hover:border-[#1C3F63]/75
-                             hover:shadow-[0_16px_48px_rgba(0,0,0,0.22)]
-                             hover:-translate-y-1
-                             transition-all duration-500"
-                >
+                <div className="group relative h-full rounded-[22px] border border-[#1C3F63]/50 bg-gradient-to-b from-[#0B1F3A]/45 to-[#060F1E]/60 backdrop-blur-sm p-7 overflow-hidden hover:border-[#1C3F63]/75 hover:shadow-[0_16px_48px_rgba(0,0,0,0.22)] hover:-translate-y-1 transition-all duration-500">
                   <div
-                    className="absolute top-0 left-1/2 -translate-x-1/2 w-[45%] h-[1px]
-                               opacity-35 group-hover:opacity-100 transition-opacity duration-500"
+                    className="absolute top-0 left-1/2 -translate-x-1/2 w-[45%] h-[1px] opacity-35 group-hover:opacity-100 transition-opacity duration-500"
                     style={{
                       background: `linear-gradient(90deg, transparent, ${item.color}50, transparent)`,
                     }}
                   />
 
                   <div
-                    className="w-13 h-13 rounded-xl flex items-center justify-center mb-5
-                               group-hover:scale-105 transition-transform duration-300"
+                    className="w-13 h-13 rounded-xl flex items-center justify-center mb-5 group-hover:scale-105 transition-transform duration-300"
                     style={{
                       width: 52,
                       height: 52,
@@ -595,16 +581,6 @@ const MissionVisionPage = () => {
                   <p className="text-[13px] leading-[1.8] text-[#8FA7C0]">
                     {item.text}
                   </p>
-
-                  <span
-                    className="absolute bottom-3 right-5 text-[42px] font-extrabold leading-none
-                               select-none pointer-events-none
-                               opacity-[0.04] group-hover:opacity-[0.07]
-                               transition-opacity duration-500"
-                    style={{ color: item.color }}
-                  >
-                    0{i + 1}
-                  </span>
                 </div>
               </FadeIn>
             ))}
@@ -612,7 +588,12 @@ const MissionVisionPage = () => {
         </div>
       </section>
 
-      {/* ═══════ TESTIMONIALS ═══════ */}
+      <InlineAuditCTA
+        title="Want to identify what’s holding back your digital growth?"
+        text="Get your free audit and we’ll highlight the strongest opportunities across strategy, performance, visibility and conversion."
+      />
+
+      {/* TESTIMONIALS */}
       <section id="testimonials" className="relative py-16 md:py-24">
         <div
           className="absolute top-0 left-0 right-0 h-px"
@@ -624,19 +605,11 @@ const MissionVisionPage = () => {
         <div className="relative z-10 mx-auto max-w-6xl px-6 md:px-8">
           <FadeIn>
             <div className="text-center mb-12 md:mb-14">
-              <div
-                className="inline-flex items-center gap-2 rounded-full
-                           border border-[#1C3F63]/60 bg-[#0F2A44]/40
-                           px-5 py-2.5 text-[10px] uppercase tracking-[0.2em]
-                           text-[#7A96B4] mb-6"
-              >
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#1C3F63]/60 bg-[#0F2A44]/40 px-5 py-2.5 text-[10px] uppercase tracking-[0.2em] text-[#7A96B4] mb-6">
                 <Quote className="w-3.5 h-3.5 text-[#D4A437]" />
                 Testimonials
               </div>
-              <h2
-                className="text-2xl sm:text-3xl md:text-[2.2rem] font-extrabold text-white
-                           leading-[1.15] tracking-tight mb-4"
-              >
+              <h2 className="text-2xl sm:text-3xl md:text-[2.2rem] font-extrabold text-white leading-[1.15] tracking-tight mb-4">
                 What Our Clients{" "}
                 <span className="bg-gradient-to-r from-[#0FA3A3] to-[#D4A437] bg-clip-text text-transparent">
                   Say About Us
@@ -652,18 +625,9 @@ const MissionVisionPage = () => {
           <div className="grid gap-6 md:grid-cols-3">
             {testimonials.map((item, i) => (
               <FadeIn key={item.name} delay={i * 0.08}>
-                <div
-                  className="group relative h-full rounded-[22px] border border-[#1C3F63]/50
-                             bg-gradient-to-b from-[#0B1F3A]/45 to-[#060F1E]/60
-                             backdrop-blur-sm p-7 overflow-hidden
-                             hover:border-[#1C3F63]/75
-                             hover:shadow-[0_16px_48px_rgba(0,0,0,0.22)]
-                             hover:-translate-y-1
-                             transition-all duration-500"
-                >
+                <div className="group relative h-full rounded-[22px] border border-[#1C3F63]/50 bg-gradient-to-b from-[#0B1F3A]/45 to-[#060F1E]/60 backdrop-blur-sm p-7 overflow-hidden hover:border-[#1C3F63]/75 hover:shadow-[0_16px_48px_rgba(0,0,0,0.22)] hover:-translate-y-1 transition-all duration-500">
                   <div
-                    className="absolute top-0 left-1/2 -translate-x-1/2 w-[45%] h-[1px]
-                               opacity-35 group-hover:opacity-100 transition-opacity duration-500"
+                    className="absolute top-0 left-1/2 -translate-x-1/2 w-[45%] h-[1px] opacity-35 group-hover:opacity-100 transition-opacity duration-500"
                     style={{
                       background: `linear-gradient(90deg, transparent, ${item.color}50, transparent)`,
                     }}
@@ -702,57 +666,13 @@ const MissionVisionPage = () => {
         </div>
       </section>
 
-      {/* ═══════ CTA — Compact ═══════ */}
-      <section className="relative py-14 md:py-20">
-        <div className="relative z-10 mx-auto max-w-3xl px-6 md:px-8">
-          <FadeIn>
-            <div
-              className="relative rounded-2xl border border-[#1C3F63]/50
-                         bg-gradient-to-r from-[#0B1F3A]/60 to-[#0D2440]/50
-                         backdrop-blur-sm overflow-hidden
-                         px-8 py-10 md:px-12 md:py-12
-                         flex flex-col md:flex-row items-center gap-6 md:gap-10"
-            >
-              <div className="absolute -top-12 left-1/3 w-[300px] h-[150px] bg-[#D4A437]/[0.04] blur-[80px] rounded-full pointer-events-none" />
-              <div
-                className="absolute top-0 left-1/2 -translate-x-1/2 w-[40%] h-[1px]"
-                style={{
-                  background: "linear-gradient(90deg, transparent, rgba(212,164,55,0.3), transparent)",
-                }}
-              />
+      <InlineAuditCTA
+        title="Ready to see where your business can grow next?"
+        text="Get your free audit and uncover practical opportunities to improve performance, sharpen your strategy and scale with more confidence."
+      />
 
-              <div className="relative z-10 flex-1 text-center md:text-left">
-                <h3 className="text-xl md:text-2xl font-bold text-white mb-2">
-                  Ready to Build a Stronger Digital Foundation?
-                </h3>
-                <p className="text-[13px] md:text-sm leading-[1.7] text-[#8FA7C0]">
-                  Let's discuss how we can help your business attract customers
-                  and scale with smart digital systems.
-                </p>
-              </div>
-
-              <motion.div
-                whileHover={{ scale: 1.04 }}
-                whileTap={{ scale: 0.97 }}
-                className="relative z-10 shrink-0"
-              >
-                <Link
-                  to="/contact"
-                  className="group inline-flex items-center gap-2.5
-                             px-7 py-3.5 rounded-xl font-semibold text-[14px]
-                             text-[#060F1E] bg-[#D4A437]
-                             shadow-[0_6px_24px_rgba(212,164,55,0.25)]
-                             hover:shadow-[0_10px_32px_rgba(212,164,55,0.35)]
-                             transition-shadow duration-300"
-                >
-                  Book Free Consultation
-                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </Link>
-              </motion.div>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
+      
+      
     </main>
   );
 };

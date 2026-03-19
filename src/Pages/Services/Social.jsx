@@ -51,6 +51,64 @@ const FadeIn = ({ children, delay = 0, direction = "up", className = "" }) => {
   );
 };
 
+/* ───────── Inline CTA ───────── */
+const InlineSocialCTA = ({
+  title = "Need better returns from your social media ads?",
+  text = "Book a free strategy call and let’s build a data-driven campaign that reaches the right audience and turns attention into enquiries.",
+  buttonText = "Book Free Strategy Call",
+}) => {
+  return (
+    <section className="py-8 md:py-10 bg-white">
+      <div className="mx-auto max-w-6xl px-6 md:px-8">
+        <FadeIn>
+          <div
+            className="relative overflow-hidden rounded-[24px] border border-slate-200/80
+                       bg-gradient-to-r from-slate-900 via-slate-800 to-sky-900
+                       px-6 py-7 md:px-8 md:py-8
+                       shadow-xl shadow-slate-900/10"
+          >
+            <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-sky-400/10 blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-10 -left-10 h-32 w-32 rounded-full bg-teal-400/10 blur-3xl pointer-events-none" />
+
+            <div className="relative z-10 flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
+              <div className="max-w-2xl">
+                <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-sky-200">
+                  <TrendingUp className="h-3.5 w-3.5 text-[#0FA3A3]" />
+                  Social Growth CTA
+                </div>
+
+                <h3 className="mb-2 text-[1.2rem] font-bold leading-snug text-white md:text-[1.45rem]">
+                  {title}
+                </h3>
+
+                <p className="text-[13px] leading-[1.75] text-slate-300 md:text-[14px]">
+                  {text}
+                </p>
+              </div>
+
+              <motion.div
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                className="shrink-0"
+              >
+                <Link
+                  to="/contact"
+                  className="group inline-flex items-center justify-center gap-2 rounded-xl
+                             bg-white px-6 py-3 text-[13px] font-semibold text-slate-900
+                             shadow-lg transition-all duration-300 hover:bg-slate-50 hover:shadow-xl md:text-[14px]"
+                >
+                  {buttonText}
+                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </Link>
+              </motion.div>
+            </div>
+          </div>
+        </FadeIn>
+      </div>
+    </section>
+  );
+};
+
 /* ───────── Data ───────── */
 const strategyCards = [
   {
@@ -188,7 +246,7 @@ const SocialPage = () => {
 
   return (
     <div className="min-h-screen overflow-x-hidden bg-white text-slate-900">
-      {/* ═══════ HERO ═══════ */}
+      {/* HERO */}
       <section className="relative overflow-hidden border-b border-slate-100">
         <div className="absolute inset-0 bg-gradient-to-b from-sky-50/80 via-white to-white" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_-10%,rgba(15,163,163,0.10),transparent_50%)]" />
@@ -206,7 +264,6 @@ const SocialPage = () => {
         <div className="absolute -top-20 left-1/2 h-[300px] w-[620px] -translate-x-1/2 rounded-full bg-sky-200/20 blur-[110px] pointer-events-none" />
 
         <div className="relative z-10 mx-auto max-w-7xl px-6 pb-14 pt-8 md:px-8 md:pb-18 md:pt-10">
-          {/* Back Button */}
           <FadeIn className="mb-8">
             <button
               onClick={() => navigate(-1)}
@@ -218,25 +275,16 @@ const SocialPage = () => {
           </FadeIn>
 
           <div className="grid items-center gap-12 lg:grid-cols-[1.08fr_0.92fr] lg:gap-14">
-            {/* Left */}
             <div className="max-w-[580px] pt-2">
               <FadeIn>
-                <div
-                  className="mb-5 inline-flex items-center gap-2.5 rounded-full
-                             border border-sky-200/80 bg-white/80
-                             px-5 py-2.5 text-[10px] font-semibold uppercase tracking-[0.2em]
-                             text-sky-700 shadow-sm shadow-sky-100/50 backdrop-blur-md md:text-[11px]"
-                >
+                <div className="mb-5 inline-flex items-center gap-2.5 rounded-full border border-sky-200/80 bg-white/80 px-5 py-2.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-sky-700 shadow-sm shadow-sky-100/50 backdrop-blur-md md:text-[11px]">
                   <Share2 className="h-4 w-4 text-[#0FA3A3]" />
                   Social Media Advertising
                 </div>
               </FadeIn>
 
               <FadeIn delay={0.08}>
-                <h1
-                  className="mb-4 text-[2.2rem] font-extrabold leading-[1.05]
-                             tracking-tight text-slate-900 sm:text-4xl md:text-5xl"
-                >
+                <h1 className="mb-4 text-[2.2rem] font-extrabold leading-[1.05] tracking-tight text-slate-900 sm:text-4xl md:text-5xl">
                   Reach the Right
                   <span className="mt-2 block bg-gradient-to-r from-[#0FA3A3] via-sky-500 to-[#D4A437] bg-clip-text text-transparent">
                     Audience. Every Time.
@@ -281,7 +329,6 @@ const SocialPage = () => {
               </FadeIn>
             </div>
 
-            {/* Right Image - smaller */}
             <FadeIn delay={0.12} direction="left">
               <div className="relative mx-auto w-full max-w-[500px] lg:ml-auto">
                 <div className="overflow-hidden rounded-[24px] border border-slate-200/80 shadow-xl shadow-slate-200/40">
@@ -336,11 +383,10 @@ const SocialPage = () => {
         </div>
       </section>
 
-      {/* ═══════ STRATEGY ═══════ */}
+      {/* STRATEGY */}
       <section className="relative py-16 md:py-20">
         <div className="relative z-10 mx-auto max-w-6xl px-6 md:px-8">
           <div className="grid items-center gap-12 lg:grid-cols-[1.08fr_0.92fr] lg:gap-14">
-            {/* Cards */}
             <div>
               <FadeIn>
                 <span className="mb-3 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.2em] text-sky-600">
@@ -366,15 +412,8 @@ const SocialPage = () => {
               <div className="grid gap-4 sm:grid-cols-2">
                 {strategyCards.map((item, i) => (
                   <FadeIn key={i} delay={0.12 + i * 0.05}>
-                    <div
-                      className="group rounded-2xl border border-slate-200/80 bg-white p-5 md:p-6
-                                 shadow-sm transition-all duration-300
-                                 hover:-translate-y-1 hover:border-sky-200/80 hover:shadow-lg hover:shadow-slate-200/60"
-                    >
-                      <div
-                        className={`mb-4 flex h-11 w-11 items-center justify-center rounded-xl ${item.lightBg}
-                                   transition-transform duration-300 group-hover:scale-105`}
-                      >
+                    <div className="group rounded-2xl border border-slate-200/80 bg-white p-5 md:p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-sky-200/80 hover:shadow-lg hover:shadow-slate-200/60">
+                      <div className={`mb-4 flex h-11 w-11 items-center justify-center rounded-xl ${item.lightBg} transition-transform duration-300 group-hover:scale-105`}>
                         <item.icon className="h-5 w-5" style={{ color: item.color }} />
                       </div>
                       <h3 className="mb-2 text-[15px] font-bold text-slate-900 md:text-base">
@@ -389,7 +428,6 @@ const SocialPage = () => {
               </div>
             </div>
 
-            {/* Image - smaller */}
             <FadeIn direction="left" delay={0.08}>
               <div className="mx-auto w-full max-w-[500px] lg:ml-auto">
                 <div className="overflow-hidden rounded-[20px] border border-slate-200/80 shadow-xl shadow-slate-200/40">
@@ -405,14 +443,18 @@ const SocialPage = () => {
         </div>
       </section>
 
-      {/* ═══════ IMPACT ═══════ */}
+      <InlineSocialCTA
+        title="Need a smarter strategy for your paid social campaigns?"
+        text="Book a free strategy call and let’s create a campaign structure designed to reach better audiences, lower wasted spend and improve returns."
+      />
+
+      {/* IMPACT */}
       <section
         id="impact"
         className="relative border-y border-slate-100 bg-slate-50/60 py-16 md:py-20 scroll-mt-24"
       >
         <div className="relative z-10 mx-auto max-w-6xl px-6 md:px-8">
           <div className="grid items-center gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:gap-14">
-            {/* Image - smaller */}
             <FadeIn direction="right">
               <div className="relative mx-auto w-full max-w-[500px]">
                 <div className="overflow-hidden rounded-[20px] border border-slate-200/80 shadow-xl shadow-slate-200/40">
@@ -447,7 +489,6 @@ const SocialPage = () => {
               </div>
             </FadeIn>
 
-            {/* Content */}
             <div className="max-w-xl">
               <FadeIn>
                 <span className="mb-3 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.2em] text-sky-600">
@@ -473,14 +514,9 @@ const SocialPage = () => {
               <div className="space-y-4">
                 {impactMetrics.map((item, i) => (
                   <FadeIn key={i} delay={0.12 + i * 0.05} direction="left">
-                    <div
-                      className="group flex items-start gap-4 rounded-2xl border border-slate-200/80
-                                 bg-white p-5 shadow-sm transition-all duration-300
-                                 hover:-translate-y-0.5 hover:border-sky-200 hover:shadow-md"
-                    >
+                    <div className="group flex items-start gap-4 rounded-2xl border border-slate-200/80 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-sky-200 hover:shadow-md">
                       <div
-                        className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl
-                                   transition-transform duration-300 group-hover:scale-105"
+                        className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl transition-transform duration-300 group-hover:scale-105"
                         style={{
                           backgroundColor: `${item.color}12`,
                           border: `1.5px solid ${item.color}25`,
@@ -505,7 +541,12 @@ const SocialPage = () => {
         </div>
       </section>
 
-      {/* ═══════ WHY CHOOSE US ═══════ */}
+      <InlineSocialCTA
+        title="Want better visibility into your campaign performance?"
+        text="Book a free strategy call and we’ll show you how to track clicks, leads and conversions with more clarity and better decision-making."
+      />
+
+      {/* WHY CHOOSE US */}
       <section className="relative py-16 md:py-20">
         <div className="relative z-10 mx-auto max-w-6xl px-6 md:px-8">
           <FadeIn>
@@ -527,15 +568,9 @@ const SocialPage = () => {
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {whyCards.map((item, i) => (
               <FadeIn key={i} delay={i * 0.05}>
-                <div
-                  className="group relative h-full rounded-2xl border border-slate-200/80
-                             bg-white p-6 shadow-sm shadow-slate-100
-                             transition-all duration-300 hover:-translate-y-1
-                             hover:border-sky-200/80 hover:shadow-lg hover:shadow-slate-200/60"
-                >
+                <div className="group relative h-full rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm shadow-slate-100 transition-all duration-300 hover:-translate-y-1 hover:border-sky-200/80 hover:shadow-lg hover:shadow-slate-200/60">
                   <div
-                    className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl
-                               transition-transform duration-300 group-hover:scale-105"
+                    className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl transition-transform duration-300 group-hover:scale-105"
                     style={{
                       backgroundColor: `${item.color}12`,
                       border: `1.5px solid ${item.color}22`,
@@ -551,10 +586,7 @@ const SocialPage = () => {
                     {item.desc}
                   </p>
 
-                  <span
-                    className="absolute right-5 top-4 select-none text-[34px] font-extrabold leading-none
-                               text-slate-100 transition-colors duration-500 group-hover:text-slate-200/80"
-                  >
+                  <span className="absolute right-5 top-4 select-none text-[34px] font-extrabold leading-none text-slate-100 transition-colors duration-500 group-hover:text-slate-200/80">
                     0{i + 1}
                   </span>
                 </div>
@@ -564,7 +596,12 @@ const SocialPage = () => {
         </div>
       </section>
 
-      {/* ═══════ PROCESS ═══════ */}
+      <InlineSocialCTA
+        title="Ready to scale with a more reliable social media strategy?"
+        text="Let’s build campaigns that combine strong creative, precise targeting and continuous optimisation for long-term growth."
+      />
+
+      {/* PROCESS */}
       <section className="relative border-y border-slate-100 bg-slate-50/60 py-16 md:py-20">
         <div className="relative z-10 mx-auto max-w-6xl px-6 md:px-8">
           <FadeIn>
@@ -593,15 +630,8 @@ const SocialPage = () => {
                     </div>
                   )}
 
-                  <div
-                    className="relative h-full rounded-2xl border border-slate-200/80 bg-white
-                               p-5 shadow-sm transition-all duration-300
-                               hover:-translate-y-1 hover:border-sky-200 hover:shadow-lg hover:shadow-slate-200/60"
-                  >
-                    <span
-                      className="mb-3 block select-none text-[28px] font-extrabold leading-none text-slate-100
-                                 transition-colors duration-500 group-hover:text-slate-200"
-                    >
+                  <div className="relative h-full rounded-2xl border border-slate-200/80 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-sky-200 hover:shadow-lg hover:shadow-slate-200/60">
+                    <span className="mb-3 block select-none text-[28px] font-extrabold leading-none text-slate-100 transition-colors duration-500 group-hover:text-slate-200">
                       {step.num}
                     </span>
                     <h3 className="mb-2 text-[15px] font-bold text-slate-900">
@@ -612,8 +642,7 @@ const SocialPage = () => {
                     </p>
 
                     <div
-                      className="absolute bottom-0 left-1/2 h-[2px] w-12 -translate-x-1/2 rounded-full
-                                 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                      className="absolute bottom-0 left-1/2 h-[2px] w-12 -translate-x-1/2 rounded-full opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                       style={{ backgroundColor: step.color }}
                     />
                   </div>
@@ -624,16 +653,11 @@ const SocialPage = () => {
         </div>
       </section>
 
-      {/* ═══════ CTA ═══════ */}
+      {/* FINAL CTA */}
       <section className="relative py-12 md:py-16">
         <div className="relative z-10 mx-auto max-w-4xl px-6 md:px-8">
           <FadeIn>
-            <div
-              className="relative flex flex-col items-center gap-5 overflow-hidden rounded-[22px]
-                         border border-slate-200 bg-gradient-to-br from-slate-900 via-slate-800 to-sky-900
-                         px-7 py-8 text-white shadow-2xl shadow-slate-900/15
-                         md:flex-row md:gap-8 md:px-10 md:py-10"
-            >
+            <div className="relative flex flex-col items-center gap-5 overflow-hidden rounded-[22px] border border-slate-200 bg-gradient-to-br from-slate-900 via-slate-800 to-sky-900 px-7 py-8 text-white shadow-2xl shadow-slate-900/15 md:flex-row md:gap-8 md:px-10 md:py-10">
               <div className="pointer-events-none absolute -right-14 -top-14 h-36 w-36 rounded-full bg-sky-400/15 blur-[60px]" />
               <div className="pointer-events-none absolute -bottom-14 left-0 h-36 w-36 rounded-full bg-teal-400/10 blur-[60px]" />
 

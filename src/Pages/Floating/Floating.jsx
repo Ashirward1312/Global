@@ -3,39 +3,23 @@ import {
   MessageCircle,
   Facebook,
   Instagram,
-  Linkedin,
-  Twitter,
 } from "lucide-react";
 
 export default function FloatingSocials() {
   const socialLinks = [
     {
       icon: Facebook,
-      href: "https://facebook.com",
+      href: "https://www.facebook.com/profile.php?id=61582189805599",
       label: "Facebook",
       color: "#1877F2",
       shadow: "rgba(24,119,242,0.4)",
     },
     {
       icon: Instagram,
-      href: "https://instagram.com",
+      href: "https://www.instagram.com/ventoriaglobal?igsh=NnJ6eG9vMzZubG4x",
       label: "Instagram",
       color: "#E4405F",
       shadow: "rgba(228,64,95,0.4)",
-    },
-    {
-      icon: Linkedin,
-      href: "https://linkedin.com",
-      label: "LinkedIn",
-      color: "#0A66C2",
-      shadow: "rgba(10,102,194,0.4)",
-    },
-    {
-      icon: Twitter,
-      href: "https://twitter.com",
-      label: "Twitter",
-      color: "#000000",
-      shadow: "rgba(0,0,0,0.4)",
     },
   ];
 
@@ -115,10 +99,6 @@ export default function FloatingSocials() {
               rel="noopener noreferrer"
               aria-label={item.label}
               className="social-btn"
-              style={{
-                "--brand-color": item.color,
-                "--brand-shadow": item.shadow,
-              }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.background = item.color;
                 e.currentTarget.style.boxShadow = `0 8px 24px ${item.shadow}`;
