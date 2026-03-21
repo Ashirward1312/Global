@@ -458,7 +458,7 @@ const WhyChoosePage = () => {
       />
 
       {/* PROCESS */}
-      <section id="process" className="py-14 md:py-18">
+      {/* <section id="process" className="py-14 md:py-18">
         <div className="mx-auto max-w-6xl px-6 md:px-8">
           <FadeIn>
             <div className="mx-auto mb-10 max-w-3xl text-center md:mb-12">
@@ -529,15 +529,15 @@ const WhyChoosePage = () => {
             })}
           </div>
         </div>
-      </section>
+      </section> */}
 
-      <InlineGrowthCTA
+      {/* <InlineGrowthCTA
         title="Want a clear roadmap for attracting more customers online?"
         text="Book a free growth consultation and let’s identify the right strategy, systems and next steps to move your business forward."
-      />
+      /> */}
 
       {/* FINAL CTA */}
-      <section className="py-14 md:py-18">
+      {/* <section className="py-14 md:py-18">
         <div className="mx-auto max-w-5xl px-6 md:px-8">
           <FadeIn>
             <div className="relative overflow-hidden rounded-[28px] border border-slate-200 bg-gradient-to-br from-slate-900 via-slate-800 to-sky-900 px-6 py-10 text-white shadow-2xl shadow-slate-900/15 md:px-10 md:py-12">
@@ -588,7 +588,7 @@ const WhyChoosePage = () => {
             </div>
           </FadeIn>
         </div>
-      </section>
+      </section> */}
     </main>
   );
 };

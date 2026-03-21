@@ -6,6 +6,11 @@ import {
   Clock3,
   ArrowRight,
   MessageSquare,
+  Globe,
+  Search,
+  Target,
+  Megaphone,
+  Layers3,
 } from "lucide-react";
 
 const Contact = () => {
@@ -13,6 +18,34 @@ const Contact = () => {
     e.preventDefault();
     alert("Form submitted! Backend/API se connect kar lena.");
   };
+
+  const serviceOptions = [
+    {
+      title: "Website Design & Development",
+      icon: Globe,
+      color: "bg-sky-100 text-sky-700",
+    },
+    {
+      title: "Strategic SEO",
+      icon: Search,
+      color: "bg-emerald-100 text-emerald-700",
+    },
+    {
+      title: "Lead Generation",
+      icon: Target,
+      color: "bg-amber-100 text-amber-700",
+    },
+    {
+      title: "Social Media Advertising",
+      icon: Megaphone,
+      color: "bg-violet-100 text-violet-700",
+    },
+    {
+      title: "Full Digital Growth Strategy",
+      icon: Layers3,
+      color: "bg-rose-100 text-rose-700",
+    },
+  ];
 
   return (
     <div className="min-h-screen bg-slate-50">
@@ -29,7 +62,7 @@ const Contact = () => {
               Let’s Connect
             </span>
 
-            <h1 className="mt-6 text-3xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-4xl md:text-5xl">
+            <h1 className="mt-6 text-3xl font-bold leading-tight tracking-tight text-slate-900 sm:text-4xl md:text-5xl">
               Let’s Talk About
               <span className="block bg-gradient-to-r from-sky-600 via-cyan-500 to-amber-500 bg-clip-text text-transparent">
                 Your Business Growth
@@ -51,7 +84,7 @@ const Contact = () => {
           {/* Left Info */}
           <div className="space-y-6">
             <div className="rounded-[28px] border border-slate-200 bg-white p-7 shadow-sm">
-              <h2 className="text-2xl font-bold text-slate-900">
+              <h2 className="text-2xl font-semibold text-slate-900">
                 Get in Touch
               </h2>
               <p className="mt-3 text-sm leading-7 text-slate-600">
@@ -97,9 +130,7 @@ const Contact = () => {
                     <h3 className="text-sm font-semibold text-slate-900">
                       Location
                     </h3>
-                    <p className="mt-1 text-sm text-slate-600">
-                      Australia
-                    </p>
+                    <p className="mt-1 text-sm text-slate-600">Australia</p>
                   </div>
                 </div>
 
@@ -119,7 +150,7 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Extra box */}
+            {/* Extra Box */}
             <div className="rounded-[28px] border border-slate-200 bg-gradient-to-br from-slate-900 via-slate-800 to-sky-900 p-7 text-white shadow-xl">
               <h3 className="text-xl font-semibold">Why Connect With Us?</h3>
               <p className="mt-3 text-sm leading-7 text-slate-200">
@@ -139,7 +170,7 @@ const Contact = () => {
                   Leads
                 </span>
                 <span className="rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs uppercase tracking-[0.16em] text-sky-100">
-                  Growth
+                  Social Ads
                 </span>
               </div>
             </div>
@@ -147,15 +178,16 @@ const Contact = () => {
 
           {/* Right Form */}
           <div className="rounded-[28px] border border-slate-200 bg-white p-7 shadow-sm md:p-8">
-            <h2 className="text-2xl font-bold text-slate-900">
+            <h2 className="text-2xl font-semibold text-slate-900">
               Send Us a Message
             </h2>
             <p className="mt-3 text-sm leading-7 text-slate-600">
-              Fill out the form below and we’ll get back to you as soon as
-              possible.
+              Fill out the form below and select the service you need. We’ll get
+              back to you as soon as possible.
             </p>
 
-            <form onSubmit={handleSubmit} className="mt-8 space-y-5">
+            <form onSubmit={handleSubmit} className="mt-8 space-y-6">
+              {/* Name */}
               <div className="grid gap-5 sm:grid-cols-2">
                 <div>
                   <label className="mb-2 block text-sm font-medium text-slate-700">
@@ -180,6 +212,7 @@ const Contact = () => {
                 </div>
               </div>
 
+              {/* Email / Phone */}
               <div className="grid gap-5 sm:grid-cols-2">
                 <div>
                   <label className="mb-2 block text-sm font-medium text-slate-700">
@@ -204,6 +237,50 @@ const Contact = () => {
                 </div>
               </div>
 
+              {/* Service Select */}
+              <div>
+                <label className="mb-2 block text-sm font-medium text-slate-700">
+                  What do you need help with?
+                </label>
+                <select className="w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-sky-400 focus:bg-white">
+                  <option value="">Select a service</option>
+                  <option>Website Design & Development</option>
+                  <option>Strategic SEO</option>
+                  <option>Lead Generation</option>
+                  <option>Social Media Advertising</option>
+                  <option>Full Digital Growth Strategy</option>
+                  <option>Other</option>
+                </select>
+              </div>
+
+              {/* Service Cards */}
+              <div>
+                <label className="mb-3 block text-sm font-medium text-slate-700">
+                  Popular Services
+                </label>
+                <div className="grid gap-3 sm:grid-cols-2">
+                  {serviceOptions.map((service, index) => {
+                    const Icon = service.icon;
+                    return (
+                      <div
+                        key={index}
+                        className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 transition hover:border-sky-300 hover:bg-white"
+                      >
+                        <div
+                          className={`flex h-10 w-10 items-center justify-center rounded-xl ${service.color}`}
+                        >
+                          <Icon className="h-5 w-5" />
+                        </div>
+                        <span className="text-sm font-medium text-slate-700">
+                          {service.title}
+                        </span>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Subject */}
               <div>
                 <label className="mb-2 block text-sm font-medium text-slate-700">
                   Subject
@@ -214,18 +291,21 @@ const Contact = () => {
                   className="w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-sky-400 focus:bg-white"
                 />
               </div>
+              
 
+              {/* Message */}
               <div>
                 <label className="mb-2 block text-sm font-medium text-slate-700">
                   Message
                 </label>
                 <textarea
                   rows="6"
-                  placeholder="Tell us about your project or business goals..."
+                  placeholder="Tell us about your project, goals or the service you are looking for..."
                   className="w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-sky-400 focus:bg-white"
                 />
               </div>
 
+              {/* Submit */}
               <button
                 type="submit"
                 className="group inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-slate-900 px-6 py-4 text-sm font-semibold text-white shadow-lg shadow-slate-900/10 transition-all duration-300 hover:-translate-y-0.5 hover:bg-slate-800"

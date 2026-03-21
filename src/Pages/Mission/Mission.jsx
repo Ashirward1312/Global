@@ -523,7 +523,7 @@ const MissionVisionPage = () => {
       </section>
 
       {/* WHAT WE COMBINE */}
-      <section className="relative py-16 md:py-24">
+      {/* <section className="relative py-16 md:py-24">
         <div
           className="absolute top-0 left-0 right-0 h-px"
           style={{
@@ -586,7 +586,7 @@ const MissionVisionPage = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       <InlineAuditCTA
         title="Want to identify what’s holding back your digital growth?"
